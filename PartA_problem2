@@ -1,0 +1,24 @@
+//This problem specifes that we have to find all possible combinataions of rolling 2 dices at once
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+   
+
+vector<vector<pair<int,int>>> matrix(6, vector<pair<int,int>>(6));
+  for(int i=0;i<6;i++){
+      for(int j=0;j<6;j++){
+          matrix[i][j]={i+1,j+1};
+      }
+  }
+  for(int i=0;i<6;i++){
+      for(int j=0;j<6;j++){
+          cout<<"{ "<<matrix[i][j].first<<", "<<matrix[i][j].second<<"} ";
+      }
+      cout<<endl;
+  }
+  
+
+    return 0;
+}
+
