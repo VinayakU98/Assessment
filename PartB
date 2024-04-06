@@ -1,0 +1,99 @@
+#include <bits/stdc++.h>
+#include <vector>
+using namespace std;
+
+void ProcessDie(vector<int>A,vector<int>B,int count ,int sum){
+  vector<int>newA;
+  vector<int>newB;
+  // count less then 4
+  if(count<=4){
+  int count2=count;
+      while(count){
+          int j=count;
+      for(int i=1;i<=j;i++){
+          newA.push_back(i);
+          newB.push_back(sum-i);
+          count--;
+      }
+      }
+     
+      int rem=6-count2;
+
+      while(rem){
+          newA.push_back(0);
+          newB.push_back(sum+1);
+          rem--;
+      }
+  }
+ //count greater then 4
+if(count>=4){
+    for(int i=1;i<=4;i++){
+        newA.push_back(i);
+        newB.push_back(sum-i);
+    }
+    int rem=count-4;
+    while(rem){
+    newA.push_back(1);
+    newB.push_back(sum+1);
+        rem--;
+    }
+    //printing
+  
+  if(newA.size()!=6 && newB.size()!=6){
+      newA.push_back(0);
+      newB.push_back(sum+1);
+  }
+}
+
+int newcount=0;
+for(int i=0;i<newA.size();i++){
+      for(int j=0;j<newB.size();j++){
+          if(newA[i]+newB[j]==sum)newcount++;
+      }
+  }
+float probability2=float(newcount)/36;
+  cout<<"probability of new sum in doomed dice "<<probability2<<endl;
+  cout<<"NewDieA : ";
+  for(auto i:newA){
+      cout<<i<<" ";
+  }cout<<endl;
+  cout<<"NewDieB : ";
+  for(auto i:newB){
+      cout<<i<<" ";
+  }
+}
+
+
+int main() {
+   
+
+vector<int>A={1,2,3,4,5,6};
+vector<int>B={1,2,3,4,5,6};
+cout<<"The original array A and B are"<<endl;
+cout<<"Die A : ";
+for(auto i:A){
+      cout<<i<<" ";
+  }cout<<endl;
+  cout<<"Die B : ";
+
+  for(auto i:B){
+      cout<<i<<" ";
+  }
+  cout<<endl;
+int sum,count;
+  cout<<"select Sum"<<endl;
+  cin>>sum;
+  cout<<"sum is "<<sum<<endl;
+  for(int i=0;i<A.size();i++){
+      for(int j=0;j<B.size();j++){
+          if(A[i]+B[j]==sum)count++;
+      }
+  }
+    cout<<"Total appearence of the sum in fair die distribution = "<<count<<endl;
+ float probability=float(count)/36;
+  cout<<"probability of sum in fair die is  "<<probability<<endl;
+  ProcessDie(A,B,count,sum);
+    return 0;
+    
+}
+
