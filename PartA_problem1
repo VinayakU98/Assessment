@@ -1,0 +1,27 @@
+//the problem statement says that we have find the total number possible combinations of a fair die with the given sum
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+   int DiceA[6]={1,2,3,4,5,6};
+   int DiceB[6]={1,2,3,4,5,6};
+   int ontopA,ontopB;
+   cout<<"enter the face value of both the dices"<<endl;
+   cin>>ontopA>>ontopB;
+   int sum=ontopA+ontopB;
+   vector<pair<int,int>>m;
+   for(int i=1;i<=6;i++){
+       for(int j=1;j<=6;j++){
+           if(i+j==sum)m.push_back({i,j});
+       }
+   }
+   
+cout<<"Total such combinations"<<" "<<m.size()<<endl;
+     for(auto i:m){
+       cout<<"{"<<i.first<<","<<i.second<<"} , ";
+       
+   }
+
+
+    return 0;
+}
