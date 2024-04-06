@@ -1,4 +1,4 @@
-//This problem specifes that we have to find all possible combinataions of rolling 2 dices at once
+//This problem specifes that we have to find all possible combinations of rolling 2 dices at once
 #include <bits/stdc++.h>
 using namespace std;
 
