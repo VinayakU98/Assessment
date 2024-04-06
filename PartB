@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-void ProcessDie(vector<int>A,vector<int>B,int count ,int sum){
+void DoomedDice(vector<int>A,vector<int>B,int count ,int sum){
   vector<int>newA;
   vector<int>newB;
   // count less then 4
@@ -92,7 +92,7 @@ int sum,count;
     cout<<"Total appearence of the sum in fair die distribution = "<<count<<endl;
  float probability=float(count)/36;
   cout<<"probability of sum in fair die is  "<<probability<<endl;
-  ProcessDie(A,B,count,sum);
+  DoomedDice(A,B,count,sum);
     return 0;
     
 }
